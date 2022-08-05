@@ -11,6 +11,7 @@ import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
 
 import business.CalculateAverageBalance;
+import business.CalculateFreeTransfer;
 
 
 public class Main {
@@ -29,6 +30,7 @@ public class Main {
 		List<Entry> entries = readCsv();
 		for (Entry entry : entries) {
 			CalculateAverageBalance.execute(entry);
+			CalculateFreeTransfer.execute(entry);
 		}
 		writeCsv(entries);
 	}
