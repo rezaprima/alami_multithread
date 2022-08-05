@@ -4,4 +4,14 @@
   <artifactId>bank</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>bank</name>
+  <dependencies>
+  	<dependency>
+    	<groupId>com.opencsv</groupId>
+    	<artifactId>opencsv</artifactId>
+   		<version>${opencsv.version}</version>
+  	</dependency>
+  </dependencies>
+  <properties>
+  	<opencsv.version>4.1</opencsv.version>
+  </properties>
 </project>
