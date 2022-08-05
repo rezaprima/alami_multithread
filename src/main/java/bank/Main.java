@@ -10,6 +10,8 @@ import java.util.List;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
 
+import business.CalculateAverageBalance;
+
 
 public class Main {
 
@@ -26,7 +28,7 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 		List<Entry> entries = readCsv();
 		for (Entry entry : entries) {
-			System.out.println(entry.toString());
+			CalculateAverageBalance.execute(entry);
 		}
 		writeCsv(entries);
 	}
@@ -46,12 +48,12 @@ public class Main {
 			entry.getNama()+";"+
 			entry.getAge()+";"+
 			entry.getBalanced()+";"+
-			"" +";"+
-			"" + ";"+
+			entry.getNo2bThreadNo() +";"+
+			entry.getNo3ThreadNo() + ";"+
 			entry.getPreviousBalanced()+";"+
 			entry.getAverageBalanced()+";"+
-			"" + ";"+
+			entry.getNo1ThreadNo() + ";"+
 			entry.getFreeTransfer()+";"+
-			"";
+			entry.getNo2aThreadNo();
 	}
 }
