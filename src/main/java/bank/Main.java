@@ -40,9 +40,14 @@ public class Main {
 		Calculator averageBalanceCalculator = new CalculateAverageBalance();
 		processAverageBalance(entries, thread1Count, averageBalanceCalculator);
 		
+		int thread2aCount = 4;
+		Calculator freeTransferCalculator = new CalculateFreeTransfer();
+		processAverageBalance(entries, thread2aCount, freeTransferCalculator);
+		
+		
 		for (Entry entry : entries) {
 //			CalculateAverageBalance.execute(entry);
-			CalculateFreeTransfer.execute(entry);
+//			CalculateFreeTransfer.execute(entry);
 			CalculateAdditionalBalance.execute(entry);
 			CalculateBonusBalance.execute(entry);
 		}
