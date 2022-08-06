@@ -17,6 +17,7 @@ import business.CalculateAdditionalBalance;
 import business.CalculateAverageBalance;
 import business.CalculateBonusBalance;
 import business.CalculateFreeTransfer;
+import business.Calculator;
 import thread.MyThread;
 
 
@@ -34,19 +35,10 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 		List<Entry> entries = readCsv();
-		
-		Map<Long, Integer> threadMap1 = new HashMap<Long, Integer>();
-		int thread1Count = 3;
-		for(int i=0; i<thread1Count; i++) {
-			Thread t = new MyThread(entries, threadMap1, thread1Count);
-			threadMap1.put(t.getId(), Integer.valueOf(i));
-			t.start();
-			try {
-				t.join();
-			} catch (InterruptedException e) {
-				
-			}
-		}
+
+		int thread1Count = 3;		
+		Calculator averageBalanceCalculator = new CalculateAverageBalance();
+		processAverageBalance(entries, thread1Count, averageBalanceCalculator);
 		
 		for (Entry entry : entries) {
 //			CalculateAverageBalance.execute(entry);
@@ -55,6 +47,24 @@ public class Main {
 			CalculateBonusBalance.execute(entry);
 		}
 		writeCsv(entries);
+	}
+
+	private static void processAverageBalance(List<Entry> entries, int threadCount, Calculator calculator) {
+		Map<Long, Integer> threadMap1 = new HashMap<Long, Integer>();		
+		for(int i=0; i<threadCount; i++) {
+			Thread t = new MyThread(entries, threadMap1, threadCount, calculator);
+			threadMap1.put(t.getId(), Integer.valueOf(i));
+			t.start();
+			try {
+				t.join();
+			} catch (InterruptedException e) {
+				
+			}
+		}
+	}
+	
+	private static void processAverageBalance() {
+		
 	}
 	
 	public static void writeCsv(List<Entry> entries) throws IOException {
