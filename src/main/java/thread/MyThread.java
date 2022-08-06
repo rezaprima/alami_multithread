@@ -22,10 +22,9 @@ public class MyThread extends Thread {
 	
 	@Override
 	public void run() {
-		final int i = map.get(Thread.currentThread().getId());
-		int j = i;
-		for(;j < list.size(); j += threadCount) {
-			calculator.execute(list.get(j), i);
+		final int threadId = map.get(Thread.currentThread().getId());
+		for(int i = threadId;i < list.size(); i += threadCount) {
+			calculator.execute(list.get(i), threadId);
 		}
 	}
 }
