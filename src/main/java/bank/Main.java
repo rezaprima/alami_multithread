@@ -12,6 +12,7 @@ import com.opencsv.bean.CsvToBeanBuilder;
 
 import business.CalculateAdditionalBalance;
 import business.CalculateAverageBalance;
+import business.CalculateBonusBalance;
 import business.CalculateFreeTransfer;
 
 
@@ -33,6 +34,7 @@ public class Main {
 			CalculateAverageBalance.execute(entry);
 			CalculateFreeTransfer.execute(entry);
 			CalculateAdditionalBalance.execute(entry);
+			CalculateBonusBalance.execute(entry);
 		}
 		writeCsv(entries);
 	}
