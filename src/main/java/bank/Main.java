@@ -45,10 +45,10 @@ public class Main {
 	}
 
 	private static void processAverageBalance(List<Entry> entries, int threadCount, Calculator calculator) {
-		Map<Long, Integer> threadMap1 = new HashMap<Long, Integer>();		
+		Map<Long, Integer> threadMap = new HashMap<Long, Integer>();		
 		for(int i=0; i<threadCount; i++) {
-			Thread t = new MyThread(entries, threadMap1, threadCount, calculator);
-			threadMap1.put(t.getId(), Integer.valueOf(i));
+			Thread t = new MyThread(entries, threadMap, threadCount, calculator);
+			threadMap.put(t.getId(), Integer.valueOf(i));
 			t.start();
 			try {
 				t.join();
