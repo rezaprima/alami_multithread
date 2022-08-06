@@ -24,13 +24,13 @@ public class Entry {
 	@CsvBindByName(column="Free Transfer")
 	private int freeTransfer;
 	
-	private Long no1ThreadNo;
+	private int no1ThreadNo;
 	
-	private Long no2aThreadNo;
+	private int no2aThreadNo;
 	
-	private Long no2bThreadNo;
+	private int no2bThreadNo;
 	
-	private Long no3ThreadNo;
+	private int no3ThreadNo;
 
 	public int getId() {
 		return id;
@@ -87,36 +87,36 @@ public class Entry {
 	public void setFreeTransfer(int freeTransfer) {
 		this.freeTransfer = freeTransfer;
 	}
-
-	public Long getNo1ThreadNo() {
+	
+	public int getNo1ThreadNo() {
 		return no1ThreadNo;
 	}
 
-	public void setNo1ThreadNo(Long no1ThreadNo) {
+	public void setNo1ThreadNo(int no1ThreadNo) {
 		this.no1ThreadNo = no1ThreadNo;
 	}
 
-	public Long getNo2aThreadNo() {
+	public int getNo2aThreadNo() {
 		return no2aThreadNo;
 	}
 
-	public void setNo2aThreadNo(Long no2aThreadNo) {
+	public void setNo2aThreadNo(int no2aThreadNo) {
 		this.no2aThreadNo = no2aThreadNo;
 	}
 
-	public Long getNo2bThreadNo() {
+	public int getNo2bThreadNo() {
 		return no2bThreadNo;
 	}
 
-	public void setNo2bThreadNo(Long no2bThreadNo) {
+	public void setNo2bThreadNo(int no2bThreadNo) {
 		this.no2bThreadNo = no2bThreadNo;
 	}
 
-	public Long getNo3ThreadNo() {
+	public int getNo3ThreadNo() {
 		return no3ThreadNo;
 	}
 
-	public void setNo3ThreadNo(Long no3ThreadNo) {
+	public void setNo3ThreadNo(int no3ThreadNo) {
 		this.no3ThreadNo = no3ThreadNo;
 	}
 
