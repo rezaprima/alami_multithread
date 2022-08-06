@@ -44,11 +44,16 @@ public class Main {
 		Calculator freeTransferCalculator = new CalculateFreeTransfer();
 		processAverageBalance(entries, thread2aCount, freeTransferCalculator);
 		
+		int thread2bCount = 4;
+		Calculator additionalBalanceCalculator = new CalculateAdditionalBalance();
+		processAverageBalance(entries, thread2bCount, additionalBalanceCalculator);
+		
+		
 		
 		for (Entry entry : entries) {
 //			CalculateAverageBalance.execute(entry);
 //			CalculateFreeTransfer.execute(entry);
-			CalculateAdditionalBalance.execute(entry);
+//			CalculateAdditionalBalance.execute(entry);
 			CalculateBonusBalance.execute(entry);
 		}
 		writeCsv(entries);
